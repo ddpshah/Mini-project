@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "172362341330",
+    "project_id": "rtoapp-60",
+    "storage_bucket": "rtoapp-60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172362341330:android:7159551b4be1bc0059c60b",
+        "android_client_info": {
+          "package_name": "com.example.rto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172362341330-mgrla1tadh7b2imah3b0606gj6gcab2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYho115h90DRPcyYJTFt3L9hxuo4OEzY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172362341330-mgrla1tadh7b2imah3b0606gj6gcab2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
