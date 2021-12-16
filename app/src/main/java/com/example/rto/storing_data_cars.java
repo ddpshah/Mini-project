@@ -1,7 +1,7 @@
 package com.example.rto;
 
 public class storing_data_cars {
-    String number_plate,registration_date,engine_no,owner_name,vehicle_class,fuel_type,maker_model,rc_status;
+    String number_plate,registration_date,engine_no,owner_name,vehicle_class,fuel_type,maker_model,rc_status,numberplate;
 
     public storing_data_cars() {
     }
@@ -38,8 +38,15 @@ public class storing_data_cars {
         this.rc_status = rc_status;
     }
 
-    public storing_data_cars(String number_plate, String registration_date, String engine_no, String owner_name, String vehicle_class, String fuel_type, String maker_model, String rc_status) {
-        this.number_plate = number_plate;
+    public String getNumberplate() {
+        return numberplate;
+    }
+
+    public void setNumberplate(String numberplate) {
+        this.numberplate = numberplate;
+    }
+
+    public storing_data_cars(String registration_date, String engine_no, String owner_name, String vehicle_class, String fuel_type, String maker_model, String rc_status, String numberplate) {
         this.registration_date = registration_date;
         this.engine_no = engine_no;
         this.owner_name = owner_name;
@@ -47,6 +54,7 @@ public class storing_data_cars {
         this.fuel_type=fuel_type;
         this.maker_model=maker_model;
         this.rc_status=rc_status;
+        this.numberplate=numberplate;
     }
 
     public String getNumber_plate() {

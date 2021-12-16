@@ -82,6 +82,7 @@ public class Search extends AppCompatActivity {
                         String fuel_type_=String.valueOf(dataSnapshot.child("fuel_type").getValue());
                         String maker_model_=String.valueOf(dataSnapshot.child("maker_model").getValue());
                         String rc_status_=String.valueOf(dataSnapshot.child("rc_status").getValue());
+                        String number_plate=String.valueOf(dataSnapshot.child("numberplate").getValue());
 
                         TextView registration_date,engine_no,owner_name,vehicle_class,fuel_type,maker_model,rc_status;
                         registration_date=findViewById(R.id.tv_registration_number);

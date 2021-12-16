@@ -85,7 +85,7 @@ public class Insert_page extends AppCompatActivity {
                                                 String makermodel=maker_val.getText().toString();
                                                 String rcstatus=rc_val.getText().toString();
 
-                                                storing_data_cars storing_dataobj1=new storing_data_cars(numberplate,registrationdate,engineno,ownername,vehicleclass,fueltype,makermodel,rcstatus);
+                                                storing_data_cars storing_dataobj1=new storing_data_cars(registrationdate,engineno,ownername,vehicleclass,fueltype,makermodel,rcstatus,numberplate);
                                                 reference.child(numberplate).setValue(storing_dataobj1);
                                                 Toast.makeText(getApplicationContext(), "Car Details entered Successfully!", Toast.LENGTH_SHORT).show();
                                                 Intent intent1=new Intent(getApplicationContext(),Admin_dashboard.class);
