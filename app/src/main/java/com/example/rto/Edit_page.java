@@ -11,7 +11,9 @@ public class Edit_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_edit_page);
+
 
         Intent intent=getIntent();
         String s=intent.getStringExtra("number_plate");

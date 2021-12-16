@@ -50,8 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textColor="@color/white"
-            android:background="@android:color/transparent"/>
+            android:textAllCaps="true"
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -90,9 +90,8 @@
             android:id="@id/et_registrationinput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:textColor="@color/white"
-            android:background="@android:color/transparent"/>
+            android:inputType="text"
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -116,8 +115,7 @@
             android:id="@+id/et_engine_no"
             android:inputType="number"
             android:textColor="@color/white"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"/>
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -140,8 +138,8 @@
             android:id="@+id/et_ownername_insert_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            />
+            android:inputType="text"
+            android:textColor="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -157,7 +155,6 @@
         android:textColorHint="@color/slight_grey"
         app:endIconTint="@color/red"
         app:endIconMode="clear_text"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/owner_name_insert">
@@ -165,7 +162,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:id="@+id/vehicleclass_insert_input"
             android:inputType="text"
             android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -191,7 +188,8 @@
             android:id="@+id/et_fueltype_insert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent" />
+            android:inputType="text"
+            android:textColor="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -214,7 +212,8 @@
             android:id="@+id/Maker_model_insert_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent" />
+            android:inputType="text"
+            android:textColor="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -240,8 +239,7 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:textColor="@color/white"
-            android:id="@+id/et_rc_status_insert"
-            android:background="@android:color/transparent"/>
+            android:id="@+id/et_rc_status_insert" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
