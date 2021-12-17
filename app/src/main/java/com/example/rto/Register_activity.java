@@ -1,8 +1,11 @@
 package com.example.rto;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -13,6 +16,9 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Register_activity extends AppCompatActivity {
     ImageView backbutton;
     Button login_button;
@@ -22,6 +28,7 @@ public class Register_activity extends AppCompatActivity {
     String phone_;
     String email_;
     String password_;
+    Timer timer;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
@@ -39,6 +46,7 @@ public class Register_activity extends AppCompatActivity {
         phone_val = findViewById(R.id.et_phone_no);
         email_val = findViewById(R.id.et_email_user_signup);
         password_val = findViewById(R.id.et_password_user_signup);
+        final loading_user_admin loadingdialog=new loading_user_admin(Register_activity.this);
 
         backbutton.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -53,6 +61,7 @@ public class Register_activity extends AppCompatActivity {
                 phone_ = phone_val.getText().toString();
                 email_ = email_val.getText().toString();
                 password_ = password_val.getText().toString();
+                hideSoftKeyboard(Register_activity.this);
 
                 if (!(name_).isEmpty()) {
                     name_val.setError(null);
@@ -81,28 +90,38 @@ public class Register_activity extends AppCompatActivity {
 
                                     storing_data storing_dataobj = new storing_data(username, phone_s, email_s, password_s);
                                     reference.child(username).setValue(storing_dataobj);
-
-                                    Toast.makeText(getApplicationContext(), "Registered Successfully!", Toast.LENGTH_SHORT).show();
-
-                                    Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
-                                    startActivity(intent);
-                                    finish();
-
+                                    loadingdialog.startloading_user_admin();
+                                    timer=new Timer();
+                                    timer.schedule(new TimerTask() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(getApplicationContext(), "Registered Successfully!", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
+                                            loadingdialog.dismissDialog();
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    },3000);
 
                                 } else {
                                     email_val.setError("Invalid Email!");
+                                    email_val.requestFocus();
                                 }
                             } else {
                                 password_val.setError("Password not Entered!");
+                                password_val.requestFocus();
                             }
                         } else {
                             email_val.setError("Email Address not Entered!");
+                            email_val.requestFocus();
                         }
                     } else {
                         phone_val.setError("Phone number not Entered!");
+                        phone_val.requestFocus();
                     }
                 } else {
                     name_val.setError("Username not Entered!");
+                    name_val.requestFocus();
                 }
             }
         });
@@ -115,5 +134,16 @@ public class Register_activity extends AppCompatActivity {
             }
         }));
 
+    }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        if(inputMethodManager.isAcceptingText()){
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.getCurrentFocus().getWindowToken(),
+                    0
+            );
+        }
     }
 }

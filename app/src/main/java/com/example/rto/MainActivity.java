@@ -1,14 +1,15 @@
 package com.example.rto;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,12 +23,15 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     TextView register;
     TextView admin_login;
     Button login;
     TextInputEditText username_val, password_val;
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
+
+        final loading_user_admin loadingdialog=new loading_user_admin(MainActivity.this);
 
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN); //(Hides notification panel)
 
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 password_val = findViewById(R.id.et_password_user_input);
                 String username_user = username_val.getText().toString();
                 String password_user = password_val.getText().toString();
-
+                hideSoftKeyboard(MainActivity.this);
                 if (!(username_user.isEmpty())) {
                     username_val.setError(null);
                     //email_val.setErrorEnabled(false);
@@ -101,15 +107,25 @@ public class MainActivity extends AppCompatActivity {
                                     if (password_check.equals(password_data)) {
                                         password_val.setError(null);
                                         //password_val.setErrorEnabled(false);
-                                        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
-                                        startActivity(intent);
-                                        finish();
+                                        loadingdialog.startloading_user_admin();
+                                        timer=new Timer();
+                                        timer.schedule(new TimerTask() {
+                                            @Override
+                                            public void run() {
+                                                Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
+                                                loadingdialog.dismissDialog();
+                                                startActivity(intent);
+                                                finishAffinity();
+                                            }
+                                        },3000);
+
                                     } else {
                                         password_val.setError("Incorrect password");
+                                        password_val.requestFocus();
                                     }
                                 } else {
                                     username_val.setError("Username doesn't exist, please register first!");
+                                    username_val.requestFocus();
                                 }
                             }
 
@@ -123,10 +139,12 @@ public class MainActivity extends AppCompatActivity {
 
                     } else {
                         password_val.setError("Password not Entered!");
+                        password_val.requestFocus();
                     }
 
                 } else {
                     username_val.setError("Username not Entered!");
+                    username_val.requestFocus();
                 }
 
             }
@@ -138,5 +156,17 @@ public class MainActivity extends AppCompatActivity {
     private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
+    }
+
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        if(inputMethodManager.isAcceptingText()){
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.getCurrentFocus().getWindowToken(),
+                    0
+            );
+        }
     }
 }
