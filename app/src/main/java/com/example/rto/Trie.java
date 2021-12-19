@@ -1,9 +1,7 @@
 package com.example.rto;
 
 
-import java.io.Serializable;
-
-class Node implements Serializable {
+class Node {
     boolean isWord;
     char c;
     Node[] children;
@@ -15,7 +13,7 @@ class Node implements Serializable {
     }
 }
 
-public class Trie implements Serializable {
+public class Trie {
     Node root = new Node('\0');
 
 

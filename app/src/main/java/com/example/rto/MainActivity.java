@@ -36,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
     Button login;
     TextInputEditText username_val, password_val;
     Timer timer;
-    DatabaseReference reference;
-    Trie trie = new Trie();
+
 
 
     @Override
@@ -46,26 +45,6 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
-
-        reference = FirebaseDatabase.getInstance().getReference("database");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    String temp = snapshot.child("numberplate").getValue(String.class).toUpperCase();
-                    trie.insert(temp);
-                    Toast.makeText(getApplicationContext(), trie.search(temp), Toast.LENGTH_SHORT).show();
-                }
-                Intent intent = new Intent(MainActivity.this,Search.class);
-                intent.putExtra("trie", trie);
-                //startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w(TAG, "onCancelled", databaseError.toException());
-            }
-        });
 
         final loading_user_admin loadingdialog=new loading_user_admin(MainActivity.this);
 
