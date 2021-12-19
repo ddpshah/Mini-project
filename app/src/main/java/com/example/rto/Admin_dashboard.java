@@ -29,6 +29,7 @@ public class Admin_dashboard extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_admin_dashboard);
+        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
 
         state_code=findViewById(R.id.et_statecode);
         city_code=findViewById(R.id.et_citycode);

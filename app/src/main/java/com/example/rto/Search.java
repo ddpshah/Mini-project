@@ -55,6 +55,7 @@ public class Search extends AppCompatActivity {
 
         }
         else if(page==0){
+            Toast.makeText(getApplicationContext(), "Login Successful!", Toast.LENGTH_SHORT).show();
             String s = intent.getStringExtra("number_plate_search_user");
             TextView tv;
             tv = findViewById(R.id.tv_numberplateview);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_shape">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="227dp"
+        android:src="@drawable/loading"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/questrial"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:text="Logging In..."/>
+
+
+</LinearLayout>
