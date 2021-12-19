@@ -58,6 +58,8 @@ public class Admin_login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideSoftKeyboard(Admin_login.this);
+                loadingdialog.startloading_user_admin();
                 String username_admin = username_val.getText().toString();
                 String password_admin = password_val.getText().toString();
                 String security_admin = code_val.getText().toString();
@@ -68,7 +70,6 @@ public class Admin_login extends AppCompatActivity {
                         password_val.setError(null);
                         if (!(security_admin).isEmpty()) {
                             code_val.setError(null);
-                            hideSoftKeyboard(Admin_login.this);
                             final String username_data = username_val.getText().toString();
                             final String password_data = password_val.getText().toString();
                             final String security_data=code_val.getText().toString();
@@ -87,26 +88,23 @@ public class Admin_login extends AppCompatActivity {
                                             if (security_data.equals(code)) {
                                                 password_val.setError(null);
                                                 code_val.setError(null);
-                                                //password_val.setErrorEnabled(false);
-                                                loadingdialog.startloading_user_admin();
-                                                timer=new Timer();
-                                                timer.schedule(new TimerTask() {
-                                                    @Override
-                                                    public void run() {
-                                                        Intent intent = new Intent(getApplicationContext(), Admin_dashboard.class);
-                                                        startActivity(intent);
-                                                        finish();
-                                                    }
-                                                },3000);
+
+                                                Toast.makeText(getApplicationContext(), "Login Successful!", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(getApplicationContext(), Admin_dashboard.class);
+                                                startActivity(intent);
+                                                finish();
                                             } else {
+                                                loadingdialog.dismissDialog();
                                                 code_val.setError("Incorrect Security code entered.");
                                                 code_val.requestFocus();
                                             }
                                         } else {
+                                            loadingdialog.dismissDialog();
                                             password_val.setError("Incorrect password");
                                             password_val.requestFocus();
                                         }
                                     } else {
+                                        loadingdialog.dismissDialog();
                                         username_val.setError("Username doesn't exist.");
                                         username_val.requestFocus();
                                     }
@@ -120,14 +118,17 @@ public class Admin_login extends AppCompatActivity {
                             });
                             Query check_password = databaseReference.orderByChild("password").equalTo(password_data);
                         } else {
+                            loadingdialog.dismissDialog();
                             code_val.setError("Security code not Entered!");
                             code_val.requestFocus();
                         }
                     } else {
+                        loadingdialog.dismissDialog();
                         password_val.setError("Password not Entered!");
                         password_val.requestFocus();
                     }
                 } else {
+                    loadingdialog.dismissDialog();
                     username_val.setError("Username not Entered!");
                     username_val.requestFocus();
 

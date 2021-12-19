@@ -9,18 +9,19 @@
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/drawable/input_field_admin.xml" value="0.1015625" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.22" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_admin_login.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_edit_page.xml" value="0.1" />
+        <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_edit_page.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_insert_page.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_loading_user_admin.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_register.xml" value="0.1" />
-        <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_search.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_search.xml" value="0.22" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_user_dashboard.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/activity_user_login.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/background_shape.xml" value="0.1" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/fragment_login.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/fragment_register.xml" value="0.1" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/loading.xml" value="0.1" />
+        <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/loading_operations.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/loading_user_admin.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/ddpsh/AndroidStudioProjects/RTO/app/src/main/res/layout/no_internet_dialog.xml" value="0.3333333333333333" />
       </map>

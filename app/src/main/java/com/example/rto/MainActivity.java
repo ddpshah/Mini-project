@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 String username_user = username_val.getText().toString();
                 String password_user = password_val.getText().toString();
                 hideSoftKeyboard(MainActivity.this);
+                loadingdialog.startloading_user_admin();
                 if (!(username_user.isEmpty())) {
                     username_val.setError(null);
                     //email_val.setErrorEnabled(false);
@@ -107,23 +108,20 @@ public class MainActivity extends AppCompatActivity {
                                     if (password_check.equals(password_data)) {
                                         password_val.setError(null);
                                         //password_val.setErrorEnabled(false);
-                                        loadingdialog.startloading_user_admin();
-                                        timer=new Timer();
-                                        timer.schedule(new TimerTask() {
-                                            @Override
-                                            public void run() {
+
+
                                                 Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
                                                 loadingdialog.dismissDialog();
                                                 startActivity(intent);
                                                 finishAffinity();
-                                            }
-                                        },3000);
 
                                     } else {
+                                        loadingdialog.dismissDialog();
                                         password_val.setError("Incorrect password");
                                         password_val.requestFocus();
                                     }
                                 } else {
+                                    loadingdialog.dismissDialog();
                                     username_val.setError("Username doesn't exist, please register first!");
                                     username_val.requestFocus();
                                 }
@@ -138,11 +136,13 @@ public class MainActivity extends AppCompatActivity {
                         Query check_password = databaseReference.orderByChild("password").equalTo(password_data);
 
                     } else {
+                        loadingdialog.dismissDialog();
                         password_val.setError("Password not Entered!");
                         password_val.requestFocus();
                     }
 
                 } else {
+                    loadingdialog.dismissDialog();
                     username_val.setError("Username not Entered!");
                     username_val.requestFocus();
                 }
