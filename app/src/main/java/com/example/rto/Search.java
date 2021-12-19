@@ -27,7 +27,7 @@ public class Search extends AppCompatActivity {
     boolean alcazar,breeza,creta,dzire,harrier,hector,i20,nexon_ev,scorpio,seltos,swift,thar,xuv700;
 
     DatabaseReference reference;
-
+    Trie trie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,10 @@ public class Search extends AppCompatActivity {
 
 
         Intent intent=getIntent();
-        Trie trie = getIntent().getParcelableExtra("trie");
+        if(getIntent().getExtras() != null) {
+            trie = (Trie) getIntent().getSerializableExtra("trie");
+            //Toast.makeText(getApplicationContext(), trie.search("MH23AE1456"), Toast.LENGTH_SHORT).show();
+        }
 
         int page=intent.getExtras().getInt("flag");
         if(page==1) {

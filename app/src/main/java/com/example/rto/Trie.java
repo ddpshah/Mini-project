@@ -1,12 +1,9 @@
 package com.example.rto;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
-class Node implements Parcelable {
+class Node implements Serializable {
     boolean isWord;
     char c;
     Node[] children;
@@ -16,60 +13,11 @@ class Node implements Parcelable {
         isWord = false;
         children = new Node[36];
     }
-
-    protected Node(Parcel in) {
-        isWord = in.readByte() != 0;
-        c = (char) in.readInt();
-        children = in.createTypedArray(Node.CREATOR);
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte((byte) (isWord ? 1 : 0));
-        dest.writeInt((int) c);
-        dest.writeTypedArray(children, flags);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<Node> CREATOR = new Creator<Node>() {
-        @Override
-        public Node createFromParcel(Parcel in) {
-            return new Node(in);
-        }
-
-        @Override
-        public Node[] newArray(int size) {
-            return new Node[size];
-        }
-    };
 }
 
-public class Trie implements Parcelable {
+public class Trie implements Serializable {
     Node root = new Node('\0');
 
-    protected Trie(Parcel in) {
-        root = in.readParcelable(Node.class.getClassLoader());
-    }
-
-    public static final Creator<Trie> CREATOR = new Creator<Trie>() {
-        @Override
-        public Trie createFromParcel(Parcel in) {
-            return new Trie(in);
-        }
-
-        @Override
-        public Trie[] newArray(int size) {
-            return new Trie[size];
-        }
-    };
-
-    public Trie() {
-
-    }
 
     // inserts into trie
     int insert(String word) {
@@ -176,15 +124,5 @@ public class Trie implements Parcelable {
             curr = curr.children[getIndex(c)];
         }
         return curr;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(root, flags);
     }
 }
