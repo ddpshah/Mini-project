@@ -20,7 +20,7 @@ public class Trie {
     // inserts into trie
     void insert(String word) {
         // if word is already present the trie will be
-        if (search(word)) {
+        if (search(word).equals("")) {
             System.out.println(word + " already exists");
             return;
         }
@@ -87,9 +87,11 @@ public class Trie {
     }
 
     // search if a word is present in the trie or not
-    boolean search(String word) {
+    String search(String word) {
         Node node = getNode(word);
-        return node != null && node.isWord;
+        if(node != null && node.isWord)
+            return word;
+        return "";
     }
 
     // get information about vehicle number

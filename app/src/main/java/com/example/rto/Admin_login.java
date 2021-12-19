@@ -40,6 +40,8 @@ public class Admin_login extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_admin_login);
+
+
         back_btn = findViewById(R.id.back_button_admin);
         login = findViewById(R.id.btn_login_admin);
         username_val = findViewById(R.id.et_username_admin_input);

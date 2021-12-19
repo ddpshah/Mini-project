@@ -5,11 +5,13 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,11 +29,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "";
     TextView register;
     TextView admin_login;
     Button login;
     TextInputEditText username_val, password_val;
     Timer timer;
+    DatabaseReference reference;
+    Trie trie = new Trie();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,23 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
+
+        reference = FirebaseDatabase.getInstance().getReference("database");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    String temp = snapshot.child("numberplate").getValue(String.class).toUpperCase();
+                    trie.insert(temp);
+                    Toast.makeText(getApplicationContext(), trie.search(temp), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "onCancelled", databaseError.toException());
+            }
+        });
 
         final loading_user_admin loadingdialog=new loading_user_admin(MainActivity.this);
 
