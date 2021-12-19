@@ -27,6 +27,7 @@ public class Search extends AppCompatActivity {
     boolean alcazar,breeza,creta,dzire,harrier,hector,i20,nexon_ev,scorpio,seltos,swift,thar,xuv700;
 
     DatabaseReference reference;
+    Trie trie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,26 +46,30 @@ public class Search extends AppCompatActivity {
 
 
         Intent intent=getIntent();
+        Intent intent_trie = new Intent();
+        trie = (Trie) intent_trie.getSerializableExtra("trie");
+
         int page=intent.getExtras().getInt("flag");
         if(page==1) {
             String numberplate_ = intent.getStringExtra("number_plate_search");
             TextView tv;
             tv = findViewById(R.id.tv_numberplateview);
             tv.setText(numberplate_);
-
-            readData(numberplate_);
-
+            if(trie.search(numberplate_.toUpperCase()).equals(numberplate_.toUpperCase()))
+                readData(trie.search(numberplate_));
+            else
+                Toast.makeText(getApplicationContext(), "Number plate does not exist!", Toast.LENGTH_SHORT).show();
         }
         else if(page==0){
             String s = intent.getStringExtra("number_plate_search_user");
             TextView tv;
             tv = findViewById(R.id.tv_numberplateview);
             tv.setText(s);
-
-            readData(s);
+            if(trie.search(s.toUpperCase()).equals(s.toUpperCase()))
+                readData(trie.search(s));
+            else
+                Toast.makeText(getApplicationContext(), "Number plate does not exist!", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     private void car_image(String maker_model_){

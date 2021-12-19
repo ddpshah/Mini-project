@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                     trie.insert(temp);
                     Toast.makeText(getApplicationContext(), trie.search(temp), Toast.LENGTH_SHORT).show();
                 }
+                Intent intent_trie= new Intent();
+                intent_trie.putExtra("trie", trie);
             }
 
             @Override

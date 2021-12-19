@@ -1,28 +1,28 @@
 package com.example.rto;
 
-class Node {
+
+import java.io.Serializable;
+
+class Node implements Serializable {
     boolean isWord;
     char c;
     Node[] children;
-    String information;
 
     Node(char c) {
-        c = this.c;
+        this.c = c;
         isWord = false;
         children = new Node[36];
     }
 }
 
-public class Trie {
+public class Trie implements Serializable {
     Node root = new Node('\0');
 
-
     // inserts into trie
-    void insert(String word) {
+    int insert(String word) {
         // if word is already present the trie will be
         if (search(word).equals(word)) {
-            System.out.println(word + " already exists");
-            return;
+            return -1;
         }
 
         Node curr = root;
@@ -33,8 +33,7 @@ public class Trie {
             curr = curr.children[getIndex(c)];
         }
         curr.isWord = true;
-        curr.information = new String(
-                "21/08/2008, 1234, Prathamesh, SUV, Petrol, Maruti Suzuki Ertiga, ACTIVE, 01/12/2021");
+        return 0;
     }
 
     // Returns true if root has no children, else false
@@ -48,7 +47,6 @@ public class Trie {
     // helper function to remove
     void remove(String key) {
         remove(root, key, 0);
-        System.out.println(search(key));
     }
 
     Node remove(Node root, String key, int depth) {
@@ -94,16 +92,6 @@ public class Trie {
         return "";
     }
 
-    // get information about vehicle number
-    void getInfo(String word) {
-        System.out.println(getNode(word).information);
-    }
-
-    // search if the word starts with the given sequence
-    boolean startsWith(String word) {
-        return getNode(word) != null;
-    }
-
     // returns true if the character is between '0'to '9'
     boolean isNumber(char c) {
         if ((c - 48) >= 0 && (c - 48) < 10)
@@ -136,46 +124,4 @@ public class Trie {
         }
         return curr;
     }
-
-    /* Display the contents of the Trie */
-    void display() {
-        StringBuilder sb = new StringBuilder();
-        String word = "";
-        // we pass in a root node, string builder, and a level (index) to insert chars
-        // at
-        displayHelper(root, sb, 0, word);
-    }
-
-    void displayHelper(Node node, StringBuilder str, int level, String word) {
-        // base case for displaying a full word (key)
-        // if a node is the end of a word (boolean), we print
-        if (node.isWord) {
-            // clear any chars remaining from previous words inserted into the string
-            // builder
-            str.delete(level, str.length());
-            word += str.toString();
-            //System.out.println(str.toString());
-        }
-
-        // loop through all the indices through a child array
-        // if a non null child is found, append the character to the String 'str'
-        // and recursively call the helper method on its child node
-        for (int i = 0; i < 36; i++) {
-            if (node.children[i] != null) {
-                // insert a char at the level index
-
-                // example: level = 2, char is 'y'
-                // our current string builder contains:
-                // t r a n k s b y e a....
-                // _ _ _ _ _ _ _ _ _ _
-
-                // now, we replace
-                // t r y <--insert at index 2, we'll clear other chars at the base case
-                // _ _ _
-                str.insert(level, Character.toString(getChar(i)));
-                displayHelper(node.children[i], str, level + 1, word);
-            }
-        }
-    }
-
 }
