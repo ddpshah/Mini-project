@@ -20,7 +20,7 @@ public class Trie {
     // inserts into trie
     void insert(String word) {
         // if word is already present the trie will be
-        if (search(word).equals("")) {
+        if (search(word).equals(word)) {
             System.out.println(word + " already exists");
             return;
         }
