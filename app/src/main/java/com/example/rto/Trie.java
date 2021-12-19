@@ -16,6 +16,7 @@ class Node {
 public class Trie {
     Node root = new Node('\0');
 
+
     // inserts into trie
     void insert(String word) {
         // if word is already present the trie will be
@@ -137,19 +138,21 @@ public class Trie {
     /* Display the contents of the Trie */
     void display() {
         StringBuilder sb = new StringBuilder();
+        String word = "";
         // we pass in a root node, string builder, and a level (index) to insert chars
         // at
-        displayHelper(root, sb, 0);
+        displayHelper(root, sb, 0, word);
     }
 
-    void displayHelper(Node node, StringBuilder str, int level) {
+    void displayHelper(Node node, StringBuilder str, int level, String word) {
         // base case for displaying a full word (key)
         // if a node is the end of a word (boolean), we print
         if (node.isWord) {
             // clear any chars remaining from previous words inserted into the string
             // builder
             str.delete(level, str.length());
-            System.out.println(str.toString());
+            word += str.toString();
+            //System.out.println(str.toString());
         }
 
         // loop through all the indices through a child array
@@ -168,8 +171,9 @@ public class Trie {
                 // t r y <--insert at index 2, we'll clear other chars at the base case
                 // _ _ _
                 str.insert(level, Character.toString(getChar(i)));
-                displayHelper(node.children[i], str, level + 1);
+                displayHelper(node.children[i], str, level + 1, word);
             }
         }
     }
+
 }

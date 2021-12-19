@@ -2,6 +2,7 @@ package com.example.rto;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -20,9 +21,11 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
+import java.nio.file.*;
 
 public class Admin_login extends AppCompatActivity {
 
+    private static final String TAG = "";
     private Button login;
     ImageView back_btn;
     TextInputEditText username_val, password_val, code_val;
@@ -47,6 +50,24 @@ public class Admin_login extends AppCompatActivity {
                 finish();
             }
         }));
+
+        Trie trie = new Trie();
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference("database");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    String temp = snapshot.child("numberplate").getValue(String.class).toUpperCase();
+                    trie.insert(temp);
+                    Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w(TAG, "onCancelled", databaseError.toException());
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
