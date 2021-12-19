@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference reference;
     Trie trie = new Trie();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                     trie.insert(temp);
                     Toast.makeText(getApplicationContext(), trie.search(temp), Toast.LENGTH_SHORT).show();
                 }
-                Intent intent_trie= new Intent();
-                intent_trie.putExtra("trie", trie);
+                Intent intent = new Intent(MainActivity.this, Search.class);
+                intent.putExtra("trie", trie);
             }
 
             @Override
