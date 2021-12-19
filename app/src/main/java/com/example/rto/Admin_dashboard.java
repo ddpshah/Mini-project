@@ -1,26 +1,33 @@
 package com.example.rto;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Admin_dashboard extends AppCompatActivity {
     TextView logout;
     Button search,add,delete,edit;
-    TextInputEditText state,city,after_city,four_digit;
-    String number_plate_original;
+    String number_plate_original,state_,city_,af_city_,four_digi_;
     EditText state_code,city_code,after_city_code,four_digit_code;
+    Timer timer;
+
+    DatabaseReference reference;
 
 
     @Override
@@ -29,7 +36,10 @@ public class Admin_dashboard extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_admin_dashboard);
-        Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+        final loading_op loadingdialog=new loading_op(Admin_dashboard.this);
+
+        reference= FirebaseDatabase.getInstance().getReference("database");
+
 
         state_code=findViewById(R.id.et_statecode);
         city_code=findViewById(R.id.et_citycode);
@@ -48,14 +58,24 @@ public class Admin_dashboard extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String state_=state_code.getText().toString();
-                String city_=city_code.getText().toString();
-                String af_city_=after_city_code.getText().toString();
-                String four_digi_=four_digit_code.getText().toString();
-                number_plate_original=state_+city_+af_city_+four_digi_;
-                Intent intent=new Intent(getApplicationContext(),Insert_page.class);
-                intent.putExtra("number_plate_insert",number_plate_original);
-                startActivity(intent);
+                hideSoftKeyboard(Admin_dashboard.this);
+                loadingdialog.startloading_loading();
+                timer=new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        state_=state_code.getText().toString();
+                        city_=city_code.getText().toString();
+                        af_city_=after_city_code.getText().toString();
+                        four_digi_=four_digit_code.getText().toString();
+                        number_plate_original=state_+city_+af_city_+four_digi_;
+                        Intent intent=new Intent(getApplicationContext(),Insert_page.class);
+                        intent.putExtra("number_plate_insert",number_plate_original);
+                        loadingdialog.dismissDialog();
+                        startActivity(intent);
+                    }
+                },3000);
+
             }
         });
 
@@ -63,16 +83,26 @@ public class Admin_dashboard extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int flag=1;
-                String state_=state_code.getText().toString();
-                String city_=city_code.getText().toString();
-                String af_city_=after_city_code.getText().toString();
-                String four_digi_=four_digit_code.getText().toString();
-                number_plate_original=state_+city_+af_city_+four_digi_;
-                Intent intent=new Intent(getApplicationContext(),Search.class);
-                intent.putExtra("number_plate_search",number_plate_original);
-                intent.putExtra("flag",flag);
-                startActivity(intent);
+                hideSoftKeyboard(Admin_dashboard.this);
+                loadingdialog.startloading_loading();
+                timer=new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        int flag=1;
+                        state_=state_code.getText().toString();
+                        city_=city_code.getText().toString();
+                        af_city_=after_city_code.getText().toString();
+                        four_digi_=four_digit_code.getText().toString();
+                        number_plate_original=state_+city_+af_city_+four_digi_;
+                        Intent intent=new Intent(getApplicationContext(),Search.class);
+                        intent.putExtra("number_plate_search",number_plate_original);
+                        intent.putExtra("flag",flag);
+                        loadingdialog.dismissDialog();
+                        startActivity(intent);
+                    }
+                },3000);
+
             }
         });
 
@@ -80,7 +110,11 @@ public class Admin_dashboard extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideSoftKeyboard(Admin_dashboard.this);
+                reference.child(number_plate_original).removeValue();
+
                 Toast.makeText(getApplicationContext(), "Respective Car Details deleted.", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -88,15 +122,36 @@ public class Admin_dashboard extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String state_=state_code.getText().toString();
-                String city_=city_code.getText().toString();
-                String af_city_=after_city_code.getText().toString();
-                String four_digi_=four_digit_code.getText().toString();
-                number_plate_original=state_+city_+af_city_+four_digi_;
-                Intent intent=new Intent(getApplicationContext(),Edit_page.class);
-                intent.putExtra("number_plate",number_plate_original);
-                startActivity(intent);
+                hideSoftKeyboard(Admin_dashboard.this);
+                loadingdialog.startloading_loading();
+                timer=new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        state_=state_code.getText().toString();
+                        city_=city_code.getText().toString();
+                        af_city_=after_city_code.getText().toString();
+                        four_digi_=four_digit_code.getText().toString();
+                        number_plate_original=state_+city_+af_city_+four_digi_;
+                        Intent intent=new Intent(getApplicationContext(),Edit_page.class);
+                        intent.putExtra("number_plate",number_plate_original);
+                        loadingdialog.dismissDialog();
+                        startActivity(intent);
+                    }
+                },3000);
+
             }
         });
+    }
+    public static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        if(inputMethodManager.isAcceptingText()){
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.getCurrentFocus().getWindowToken(),
+                    0
+            );
+        }
     }
 }

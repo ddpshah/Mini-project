@@ -22,7 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Objects;
 
 public class Search extends AppCompatActivity {
-    ImageView backbutton;
+    ImageView backbutton,car;
+    String numberplate, registration_date_, engine_no_, Owner_name_, fuel_type_, Vehicle_class_, maker_model_, rc_status_;
+    boolean alcazar,breeza,creta,dzire,harrier,hector,i20,nexon_ev,scorpio,seltos,swift,thar,xuv700;
 
     DatabaseReference reference;
 
@@ -32,12 +34,11 @@ public class Search extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_search);
+        car=findViewById(R.id.default_car);
         backbutton=findViewById(R.id.imageView);
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),Admin_dashboard.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -55,13 +56,61 @@ public class Search extends AppCompatActivity {
 
         }
         else if(page==0){
-            Toast.makeText(getApplicationContext(), "Login Successful!", Toast.LENGTH_SHORT).show();
             String s = intent.getStringExtra("number_plate_search_user");
             TextView tv;
             tv = findViewById(R.id.tv_numberplateview);
             tv.setText(s);
+
+            readData(s);
         }
 
+
+    }
+
+    private void car_image(String maker_model_){
+
+        if(maker_model_.equals("Tata Harrier")){
+            car.setImageResource(R.drawable.harrier);
+        }
+        else if(maker_model_.equals("MG Hector")){
+            car.setImageResource(R.drawable.hector);
+        }
+        else if(maker_model_.equals("Suzuki Dzire")){
+            car.setImageResource(R.drawable.dzire);
+        }
+        else if(maker_model_.equals("Mahindra XUV")){
+            car.setImageResource(R.drawable.xuv700);
+        }
+        else if(maker_model_.equals("Hyundai Alcazar")){
+            car.setImageResource(R.drawable.alcazar);
+        }
+        else if(maker_model_.equals("Vitara Brezza")){
+            car.setImageResource(R.drawable.brezza);
+        }
+        else if(maker_model_.equals("Hyundai Creta")){
+            car.setImageResource(R.drawable.creta);
+        }
+        else if(maker_model_.equals("Hyundai i20 N-Line")){
+            car.setImageResource(R.drawable.i20);
+        }
+        else if(maker_model_.equals("Tata Nexon EV")){
+            car.setImageResource(R.drawable.nexon_ev);
+        }
+        else if(maker_model_.equals("Mahindra Scorpio")){
+            car.setImageResource(R.drawable.scorpio);
+        }
+        else if(maker_model_.equals("Kia Seltos")){
+            car.setImageResource(R.drawable.seltos);
+        }
+        else if(maker_model_.equals("Suzuki Swift")){
+            car.setImageResource(R.drawable.swift);
+        }
+        else if(maker_model_.equals("Mahindra Thar")){
+            car.setImageResource(R.drawable.thar);
+        }
+        else {
+            car.setImageResource(R.drawable.myimage);
+        }
 
     }
 
@@ -76,14 +125,16 @@ public class Search extends AppCompatActivity {
                     if(task.getResult().exists()){
                         Toast.makeText(getApplicationContext(), "Car Details Found!", Toast.LENGTH_SHORT).show();
                         DataSnapshot dataSnapshot=task.getResult();
-                        String registration_date_=String.valueOf(dataSnapshot.child("registration_date").getValue());
-                        String engine_no_=String.valueOf(dataSnapshot.child("engine_no").getValue());
-                        String Owner_name_=String.valueOf(dataSnapshot.child("owner_name").getValue());
-                        String Vehicle_class_=String.valueOf(dataSnapshot.child("vehicle_class").getValue());
-                        String fuel_type_=String.valueOf(dataSnapshot.child("fuel_type").getValue());
-                        String maker_model_=String.valueOf(dataSnapshot.child("maker_model").getValue());
-                        String rc_status_=String.valueOf(dataSnapshot.child("rc_status").getValue());
+                        registration_date_=String.valueOf(dataSnapshot.child("registration_date").getValue());
+                        engine_no_=String.valueOf(dataSnapshot.child("engine_no").getValue());
+                        Owner_name_=String.valueOf(dataSnapshot.child("owner_name").getValue());
+                        Vehicle_class_=String.valueOf(dataSnapshot.child("vehicle_class").getValue());
+                        fuel_type_=String.valueOf(dataSnapshot.child("fuel_type").getValue());
+                        maker_model_=String.valueOf(dataSnapshot.child("maker_model").getValue());
+                        rc_status_=String.valueOf(dataSnapshot.child("rc_status").getValue());
                         String number_plate=String.valueOf(dataSnapshot.child("numberplate").getValue());
+
+                        car_image(maker_model_);
 
                         TextView registration_date,engine_no,owner_name,vehicle_class,fuel_type,maker_model,rc_status;
                         registration_date=findViewById(R.id.tv_registration_number);
@@ -101,6 +152,8 @@ public class Search extends AppCompatActivity {
                         fuel_type.setText(fuel_type_);
                         maker_model.setText(maker_model_);
                         rc_status.setText(rc_status_);
+
+
 
 
                     }else {
