@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,8 +32,10 @@ public class Register_activity extends AppCompatActivity {
     String phone_;
     String email_;
     String password_;
+    private FirebaseAuth auth;
 
     FirebaseDatabase firebaseDatabase;
+
     DatabaseReference reference;
 
     @Override
@@ -41,6 +44,7 @@ public class Register_activity extends AppCompatActivity {
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN); //(Hides notification panel)
         getSupportActionBar().hide();
         setContentView(R.layout.activity_register);
+        auth=FirebaseAuth.getInstance();
 
         reference = FirebaseDatabase.getInstance().getReference("datauser");
         reference.addValueEventListener(new ValueEventListener() {

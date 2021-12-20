@@ -33,7 +33,6 @@ public class loading_user_admin{
 
     void dismissDialog(){
         dialog.dismiss();
-
     }
 
 

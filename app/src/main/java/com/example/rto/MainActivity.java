@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     TextView admin_login;
     Button login;
     TextInputEditText username_val, password_val;
-    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
