@@ -18,12 +18,7 @@ public class Trie {
 
 
     // inserts into trie
-    int insert(String word) {
-        // if word is already present the trie will be
-        if (search(word).equals(word)) {
-            return -1;
-        }
-
+    void insert(String word) {
         Node curr = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
@@ -32,7 +27,6 @@ public class Trie {
             curr = curr.children[getIndex(c)];
         }
         curr.isWord = true;
-        return 0;
     }
 
     // Returns true if root has no children, else false

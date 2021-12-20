@@ -25,17 +25,15 @@
         android:text="Car Details"
         android:textColor="@color/white"
         android:textSize="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_numberplateview"
         android:layout_width="353dp"
         android:layout_height="47dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/questrial"
         android:paddingTop="10dp"
@@ -43,13 +41,13 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/tv_registration_number"
         android:layout_width="353dp"
         android:layout_height="47dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/questrial"
         android:paddingTop="10dp"
@@ -57,13 +55,12 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_numberplateview" />
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <TextView
         android:id="@+id/tv_engine_no"
         android:layout_width="353dp"
         android:layout_height="47dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/questrial"
         android:paddingTop="10dp"
@@ -72,13 +69,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_registration_number" />
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
         android:id="@+id/tv_owner_name"
         android:layout_width="353dp"
         android:layout_height="47dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/questrial"
         android:paddingTop="10dp"
@@ -86,13 +83,12 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_engine_no" />
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView
         android:id="@+id/tv_vehicle_class"
         android:layout_width="353dp"
         android:layout_height="47dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/questrial"
         android:paddingTop="10dp"
@@ -100,13 +96,12 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_owner_name" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
     <TextView
         android:id="@+id/tv_fuel_type"
         android:layout_width="353dp"
         android:layout_height="47dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/questrial"
         android:paddingTop="10dp"
@@ -114,13 +109,12 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_vehicle_class" />
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
     <TextView
         android:id="@+id/tv_model"
         android:layout_width="353dp"
         android:layout_height="47dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/questrial"
         android:paddingTop="10dp"
@@ -128,13 +122,12 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_fuel_type" />
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <TextView
         android:id="@+id/tv_rc_status"
         android:layout_width="353dp"
         android:layout_height="47dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/input_field"
         android:fontFamily="@font/questrial"
         android:paddingTop="10dp"
@@ -142,7 +135,7 @@
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_model" />
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -160,16 +153,13 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="Number Plate"
         android:fontFamily="@font/questrial"
+        android:text="Number Plate"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tv_numberplateview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/default_car" />
 
     <TextView
         android:id="@+id/textView24"
@@ -179,102 +169,83 @@
         android:fontFamily="@font/questrial"
         android:text="Registration Date"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tv_registration_number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_numberplateview" />
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="Engine No."
         android:fontFamily="@font/questrial"
+        android:text="Engine No."
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tv_engine_no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24"
-        app:layout_constraintVertical_bias="0.98" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_registration_number" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="Owner name"
         android:fontFamily="@font/questrial"
+        android:text="Owner name"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tv_owner_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25"
-        app:layout_constraintVertical_bias="0.98" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_engine_no" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="Vehicle Class"
         android:fontFamily="@font/questrial"
+        android:text="Vehicle Class"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tv_vehicle_class"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_owner_name" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="Fuel Type"
         android:fontFamily="@font/questrial"
+        android:text="Fuel Type"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tv_fuel_type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27"
-        app:layout_constraintVertical_bias="0.979" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_vehicle_class" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="Maker/Model"
         android:fontFamily="@font/questrial"
+        android:text="Maker/Model"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tv_model"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_fuel_type" />
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RC Status"
-        android:layout_marginTop="2dp"
         android:fontFamily="@font/questrial"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/tv_rc_status"
+        android:text="RC Status"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_model" />
 
     <TextView
         android:id="@+id/textView31"
@@ -305,10 +276,9 @@
         android:id="@+id/default_car"
         android:layout_width="283dp"
         android:layout_height="249dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_numberplateview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23"
         app:srcCompat="@drawable/myimage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,261 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Insert_page"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="New Car Details"
-        android:textAllCaps="false"
-        android:textColor="@color/red"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_number_plate"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Number Plate"
-        android:textColorHint="@color/slight_grey"
-        app:counterEnabled="true"
-        app:counterMaxLength="10"
-        app:counterOverflowTextAppearance="@color/red"
-        app:counterOverflowTextColor="@color/red"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        app:helperText="Required*"
-        app:helperTextTextColor="@color/red"
-        app:hintTextColor="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:context=".Insert_page">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_number_plate_input"
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/questrial"
+            android:text="New Car Details"
+            android:textAllCaps="false"
+            android:textColor="@color/red"
+            android:textSize="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_number_plate"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textAllCaps="true"
-            android:textColor="@color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Number Plate"
+            android:textColorHint="@color/slight_grey"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:counterOverflowTextAppearance="@color/red"
+            app:counterOverflowTextColor="@color/red"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/red"
+            app:helperText="Required*"
+            app:helperTextTextColor="@color/red"
+            app:hintTextColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_number_plate_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textAllCaps="true"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-    <TextView
-        android:id="@+id/bottomline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="@string/powered_by_grp_2_batch_c"
-        android:textColor="@color/grey"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="SmallSp" />
+        <TextView
+            android:id="@+id/bottomline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/questrial"
+            android:text="@string/powered_by_grp_2_batch_c"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_insert_input"
+            tools:ignore="SmallSp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_registration"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Registration Date"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        android:textColorHint="@color/slight_grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_number_plate">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@id/et_registrationinput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_registration"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textColor="@color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Registration Date"
+            android:textColorHint="@color/slight_grey"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_number_plate">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/engine_no_insert"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Engine No."
-        android:textColorHint="@color/slight_grey"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_registration">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@id/et_registrationinput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/engine_no_insert"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:id="@+id/et_engine_no"
-            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Engine No."
+            android:textColorHint="@color/slight_grey"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_registration">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_engine_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/owner_name_insert"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Owner Name"
+            android:textColorHint="@color/slight_grey"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/engine_no_insert">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ownername_insert_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/vehicleclass_insert"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Vehicle Class"
+            android:textColorHint="@color/slight_grey"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/owner_name_insert">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/vehicleclass_insert_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Fuel_type_insert"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Fuel Type"
+            android:textColorHint="@color/slight_grey"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vehicleclass_insert">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_fueltype_insert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Maker_model_insert"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Maker/Model"
+            android:textColorHint="@color/slight_grey"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Fuel_type_insert">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Maker_model_insert_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_rc_status"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+
+            android:hint="RC Status"
+
+            android:textColorHint="@color/slight_grey"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Maker_model_insert">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_rc_status_insert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_insert_input"
+            android:layout_width="162dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/questrial"
+            android:text="Insert"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/owner_name_insert"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Owner Name"
-        android:textColorHint="@color/slight_grey"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/engine_no_insert">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_ownername_insert_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textColor="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/vehicleclass_insert"
-        android:layout_width="match_parent"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Vehicle Class"
-        android:textColorHint="@color/slight_grey"
-        app:endIconTint="@color/red"
-        app:endIconMode="clear_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/owner_name_insert">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/vehicleclass_insert_input"
-            android:inputType="text"
-            android:textColor="@color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Fuel_type_insert"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Fuel Type"
-        android:textColorHint="@color/slight_grey"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vehicleclass_insert">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_fueltype_insert"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textColor="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Maker_model_insert"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Maker/Model"
-        android:textColorHint="@color/slight_grey"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fuel_type_insert">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Maker_model_insert_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textColor="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_rc_status"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-
-        android:hint="RC Status"
-
-        android:textColorHint="@color/slight_grey"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Maker_model_insert">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textColor="@color/white"
-            android:id="@+id/et_rc_status_insert" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="162dp"
-        android:layout_height="53dp"
-        android:id="@+id/btn_insert_input"
-        android:background="@drawable/button"
-        android:textColor="@color/white"
-        android:text="Insert"
-        android:textAllCaps="false"
-        android:textSize="35dp"
-        android:fontFamily="@font/questrial"
-        app:layout_constraintBottom_toTopOf="@+id/bottomline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_rc_status" />
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_rc_status" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

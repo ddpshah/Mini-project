@@ -23,6 +23,7 @@
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
         android:textSize="25dp"
+        android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,6 +40,7 @@
         android:ems="10"
         android:fontFamily="@font/questrial"
         android:hint="AD"
+        android:textAllCaps="true"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -61,6 +63,7 @@
         android:fontFamily="@font/questrial"
         android:gravity="center"
         android:hint="23"
+        android:textAllCaps="true"
         android:inputType="number"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -82,6 +85,7 @@
         android:ems="10"
         android:fontFamily="@font/questrial"
         android:hint="MH"
+        android:textAllCaps="true"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -105,19 +109,19 @@
         android:text="Search"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="35dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_log_out_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintTop_toBottomOf="@+id/et_aftercitycode_user"
+        app:layout_constraintVertical_bias="0.329" />
 
     <TextView
         android:id="@+id/bottomline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="40dp"
         android:fontFamily="@font/questrial"
         android:text="@string/powered_by_grp_2_batch_c"
         android:textColor="@color/slight_grey"
@@ -125,14 +129,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963"
         tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/btn_log_out_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
         android:fontFamily="@font/questrial"
         android:text="Log Out"
         android:textAllCaps="false"
@@ -140,9 +143,7 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

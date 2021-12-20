@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -37,14 +38,13 @@ public class MainActivity extends AppCompatActivity {
     TextInputEditText username_val, password_val;
     Timer timer;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+
 
         final loading_user_admin loadingdialog=new loading_user_admin(MainActivity.this);
 
