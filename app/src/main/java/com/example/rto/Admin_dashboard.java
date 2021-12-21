@@ -90,18 +90,33 @@ public class Admin_dashboard extends AppCompatActivity {
                         af_city_ = after_city_code.getText().toString();
                         four_digi_ = four_digit_code.getText().toString();
                         number_plate_original = state_ + city_ + af_city_ + four_digi_;
-                        if (trie.search(number_plate_original.toUpperCase()).equals("")) {
-                            trie.insert(number_plate_original.toUpperCase());
-                            Intent intent = new Intent(getApplicationContext(), Insert_page.class);
-                            intent.putExtra("number_plate_insert", number_plate_original.toUpperCase());
-                            loadingdialog.dismissDialog();
-                            startActivity(intent);
-                        } else {
+                        if (!number_plate_original.isEmpty()) {
+                            if (trie.search(number_plate_original.toUpperCase()).equals("")) {
+                                trie.insert(number_plate_original.toUpperCase());
+                                Intent intent = new Intent(getApplicationContext(), Insert_page.class);
+                                intent.putExtra("number_plate_insert", number_plate_original.toUpperCase());
+                                loadingdialog.dismissDialog();
+                                startActivity(intent);
+                            } else {
+                                Thread thread = new Thread() {
+                                    public void run() {
+                                        runOnUiThread(new Runnable() {
+                                            public void run() {
+                                                Toast.makeText(getApplicationContext(), "Number plate already exist!", Toast.LENGTH_SHORT).show();
+                                                loadingdialog.dismissDialog();
+                                            }
+                                        });
+                                    }
+                                };
+                                thread.start();
+                            }
+
+                        }else {
                             Thread thread = new Thread() {
                                 public void run() {
                                     runOnUiThread(new Runnable() {
                                         public void run() {
-                                            Toast.makeText(getApplicationContext(), "Number plate already exist!", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), "Please enter number plate!", Toast.LENGTH_SHORT).show();
                                             loadingdialog.dismissDialog();
                                         }
                                     });

@@ -63,14 +63,18 @@
             android:id="@+id/bottomline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
             android:fontFamily="@font/questrial"
             android:text="@string/powered_by_grp_2_batch_c"
             android:textColor="@color/grey"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_insert_input"
+            app:layout_constraintVertical_bias="1.0"
             tools:ignore="SmallSp" />
 
         <com.google.android.material.textfield.TextInputLayout
