@@ -121,4 +121,10 @@ public class Insert_page extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed(){
+
+        Toast.makeText(getApplicationContext(), "Please enter New Car Details first!", Toast.LENGTH_SHORT).show();
+
+    }
 }

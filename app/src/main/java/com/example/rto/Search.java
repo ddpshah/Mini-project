@@ -88,67 +88,47 @@ public class Search extends AppCompatActivity {
             car.setImageResource(R.drawable.swift);
         } else if (maker_model_.equals("Mahindra Thar")) {
             car.setImageResource(R.drawable.thar);
-        }
-        else if (maker_model_.equals("Suzuki Alto")) {
+        } else if (maker_model_.equals("Suzuki Alto")) {
             car.setImageResource(R.drawable.alto);
-        }
-        else if (maker_model_.equals("MG Astor")) {
+        } else if (maker_model_.equals("MG Astor")) {
             car.setImageResource(R.drawable.astor);
-        }
-        else if (maker_model_.equals("Suzuki Baleno")) {
+        } else if (maker_model_.equals("Suzuki Baleno")) {
             car.setImageResource(R.drawable.baleno);
-        }
-        else if (maker_model_.equals("Kia Carnival")) {
+        } else if (maker_model_.equals("Kia Carnival")) {
             car.setImageResource(R.drawable.carnival);
-        }
-        else if (maker_model_.equals("Suzuki Celerio")) {
+        } else if (maker_model_.equals("Suzuki Celerio")) {
             car.setImageResource(R.drawable.celerio);
-        }
-        else if (maker_model_.equals("Suzuki Ciaz")) {
+        } else if (maker_model_.equals("Suzuki Ciaz")) {
             car.setImageResource(R.drawable.ciaz);
-        }
-        else if (maker_model_.equals("Renault Duster")) {
+        } else if (maker_model_.equals("Renault Duster")) {
             car.setImageResource(R.drawable.duster);
-        }
-        else if (maker_model_.equals("Suzuki Ertiga")) {
+        } else if (maker_model_.equals("Suzuki Ertiga")) {
             car.setImageResource(R.drawable.ertiga);
-        }
-        else if (maker_model_.equals("Renault Kiger")) {
+        } else if (maker_model_.equals("Renault Kiger")) {
             car.setImageResource(R.drawable.kiger);
-        }
-        else if (maker_model_.equals("Renault Kwid")) {
+        } else if (maker_model_.equals("Renault Kwid")) {
             car.setImageResource(R.drawable.kwid);
-        }
-        else if (maker_model_.equals("Volkswagen Polo")) {
+        } else if (maker_model_.equals("Volkswagen Polo")) {
             car.setImageResource(R.drawable.polo);
-        }
-        else if (maker_model_.equals("Tata Punch")) {
+        } else if (maker_model_.equals("Tata Punch")) {
             car.setImageResource(R.drawable.punch);
-        }
-        else if (maker_model_.equals("Tata Safari")) {
+        } else if (maker_model_.equals("Tata Safari")) {
             car.setImageResource(R.drawable.safari);
-        }
-        else if (maker_model_.equals("Suzuki S-Cross")) {
+        } else if (maker_model_.equals("Suzuki S-Cross")) {
             car.setImageResource(R.drawable.scross);
-        }
-        else if (maker_model_.equals("Kia Sonet")) {
+        } else if (maker_model_.equals("Kia Sonet")) {
             car.setImageResource(R.drawable.sonet);
-        }
-        else if (maker_model_.equals("Tata Tiago")) {
+        } else if (maker_model_.equals("Tata Tiago")) {
             car.setImageResource(R.drawable.tiago);
-        }
-        else if (maker_model_.equals("Tata Tigor")) {
+        } else if (maker_model_.equals("Tata Tigor")) {
             car.setImageResource(R.drawable.tigor);
-        }
-        else if (maker_model_.equals("Volkswagen Vento")) {
+        } else if (maker_model_.equals("Volkswagen Vento")) {
             car.setImageResource(R.drawable.vento);
-        }
-        else if (maker_model_.equals("Suzuki Wagon-R")) {
+        } else if (maker_model_.equals("Suzuki Wagon-R")) {
             car.setImageResource(R.drawable.wagonr);
-        }
-        else if (maker_model_.equals("xuv300")) {
+        } else if (maker_model_.equals("xuv300")) {
             car.setImageResource(R.drawable.xuv300);
-        }else {
+        } else {
             car.setImageResource(R.drawable.myimage);
         }
     }
