@@ -118,8 +118,6 @@ public class Insert_page extends AppCompatActivity {
 
             }
         });
-
-
     }
     @Override
     public void onBackPressed(){

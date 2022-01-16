@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password_new"
+        app:layout_constraintTop_toBottomOf="@+id/repassword_new"
         tools:ignore="SpUsage" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -121,7 +121,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_new"
+        android:id="@+id/email_new"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_username_new">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_phone_no"
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
@@ -151,7 +151,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_new"
+        android:id="@+id/Password_new"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -167,10 +167,10 @@
         app:hintTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_new">
+        app:layout_constraintTop_toBottomOf="@+id/email_new">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_email_user_signup"
+            android:id="@+id/et_password_user_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -178,7 +178,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Password_new"
+        android:id="@+id/repassword_new"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -193,10 +193,10 @@
         app:hintTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_new">
+        app:layout_constraintTop_toBottomOf="@+id/Password_new">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_password_user_signup"
+            android:id="@+id/et_repassword_user_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

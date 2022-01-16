@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+
 <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".Register_activity"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/questrial"
         android:text="@string/register"
         android:textColor="@color/red"
@@ -23,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backbutton"
         tools:ignore="SpUsage" />
 
 
@@ -45,7 +43,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signup"
-        android:layout_width="369dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button"
@@ -58,12 +56,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password_new"
+        app:layout_constraintTop_toBottomOf="@+id/repassword_new"
         tools:ignore="SpUsage" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_button"
-        android:layout_width="369dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/button"
@@ -81,88 +79,25 @@
 
     <ImageView
         android:id="@+id/backbutton"
-        android:layout_width="20dp"
+        android:layout_width="30dp"
         android:layout_height="29dp"
         android:contentDescription="@string/back"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258"
         app:srcCompat="@drawable/arrow_back" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_username_new"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="16dp"
-        android:autofillHints="name"
-        app:counterOverflowTextAppearance="@color/red"
-        android:hint="Username"
-        android:textColorHint="@color/slight_grey"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        app:helperText="Required*"
-        app:helperTextTextColor="@color/red"
-        app:hintTextColor="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:counterMaxLength="20"
-        app:counterOverflowTextColor="@color/red"
-        app:counterEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_username_new_input"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textColor="?android:textColorPrimary" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_new"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:autofillHints="phone"
-        android:hint="Phone Number"
-        android:textColorHint="@color/slight_grey"
-        app:counterEnabled="true"
-        app:counterMaxLength="10"
-        app:counterOverflowTextColor="@color/red"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/red"
-        app:helperText="Required*"
-        app:helperTextTextColor="@color/red"
-        app:hintTextColor="@color/red"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_username_new">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_phone_no"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:textColor="?android:textColorPrimary" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_new"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:autofillHints="emailAddress"
-        android:hint="Email Address"
+        android:autofillHints="phone"
+        android:hint="Enter Email Address"
         android:textColorHint="@color/slight_grey"
         app:endIconMode="clear_text"
         app:endIconTint="@color/red"
@@ -171,10 +106,10 @@
         app:hintTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_new">
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_email_user_signup"
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -188,7 +123,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="Password"
+        android:autofillHints="emailAddress"
+        android:hint="Enter Password"
+        app:counterEnabled="true"
+        app:counterOverflowTextColor="@color/red"
+        app:counterMaxLength="20"
         android:textColorHint="@color/slight_grey"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/red"
@@ -207,5 +146,33 @@
             android:textColor="?android:textColorPrimary" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/repassword_new"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Re-enter Password"
+        android:textColorHint="@color/slight_grey"
+        app:endIconMode="password_toggle"
+        app:counterMaxLength="20"
+        app:counterOverflowTextColor="@color/red"
+        app:counterEnabled="true"
+        app:endIconTint="@color/red"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
+        app:hintTextColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Password_new">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_repassword_user_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="?android:textColorPrimary" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>

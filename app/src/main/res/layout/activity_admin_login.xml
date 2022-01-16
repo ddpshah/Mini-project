@@ -72,14 +72,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/et_password_admin"
+            android:id="@+id/et_password_user"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:autofillHints="password"
+            android:autofillHints="repassword"
             android:gravity="center"
             android:hint="Password"
             android:textColorHint="@color/slight_grey"
@@ -150,7 +150,7 @@
             app:hintTextColor="@color/red"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_password_admin">
+            app:layout_constraintTop_toBottomOf="@+id/et_password_user">
 
 
             <com.google.android.material.textfield.TextInputEditText

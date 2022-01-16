@@ -1,32 +1,15 @@
 package com.example.rto;
 
 public class storing_data {
-    String username,phoneno,email,password;
+    String email, password, repassword;
 
     public storing_data() {
     }
 
-    public storing_data(String username, String phoneno, String email, String password) {
-        this.username = username;
-        this.phoneno = phoneno;
+    public storing_data(String email, String password, String repassword) {
         this.email = email;
         this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPhoneno() {
-        return phoneno;
-    }
-
-    public void setPhoneno(String phoneno) {
-        this.phoneno = phoneno;
+        this.repassword = repassword;
     }
 
     public String getEmail() {
@@ -34,7 +17,7 @@ public class storing_data {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email= email;
     }
 
     public String getPassword() {
@@ -43,5 +26,13 @@ public class storing_data {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRepassword() {
+        return repassword;
+    }
+
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
     }
 }

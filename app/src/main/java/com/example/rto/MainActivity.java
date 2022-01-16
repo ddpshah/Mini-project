@@ -2,22 +2,23 @@ package com.example.rto;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,27 +26,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.Serializable;
-import java.util.Objects;
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "";
     TextView register;
     TextView admin_login;
     Button login;
-    TextInputEditText username_val, password_val;
+    TextInputEditText email_val, password_val;
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
 
 
-        final loading_user_admin loadingdialog=new loading_user_admin(MainActivity.this);
+        final loading_user_admin loadingdialog = new loading_user_admin(MainActivity.this);
 
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN); //(Hides notification panel)
 
@@ -56,63 +54,87 @@ public class MainActivity extends AppCompatActivity {
             dialog.show();
             Button close;
             close = dialog.findViewById(R.id.close);
-            close.setOnClickListener(v -> finishAffinity());
-        }
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finishAffinity();
+                    dialog.cancel();
+                }
+            });
+            dialog.setOnKeyListener(new Dialog.OnKeyListener() {
+
+                @Override
+                public boolean onKey(DialogInterface arg0, int keyCode,
+                                     KeyEvent event) {
+                    // TODO Auto-generated method stub
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        finishAffinity();
+                        dialog.cancel();
+                    }
+                    return true;
+                }
+            });
+        } else {
+            setContentView(R.layout.activity_main);
 
 
-        register = findViewById(R.id.Register);
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Register_activity.class);
-                startActivity(intent);
-            }
-        });
+            register = findViewById(R.id.Register);
+            register.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, Register_activity.class);
+                    startActivity(intent);
+                }
+            });
 
-        admin_login = findViewById(R.id.btn_Admin);
-        admin_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Admin_login.class);
-                startActivity(intent);
-            }
-        });
+            admin_login = findViewById(R.id.btn_Admin);
+            admin_login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, Admin_login.class);
+                    startActivity(intent);
+                }
+            });
 
+            mAuth = FirebaseAuth.getInstance();
+            mUser = mAuth.getCurrentUser();
 
-        login = findViewById(R.id.btn_login_admin);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                username_val = findViewById(R.id.et_username_user_input);
-                password_val = findViewById(R.id.et_password_user_input);
-                String username_user = username_val.getText().toString();
-                String password_user = password_val.getText().toString();
-                hideSoftKeyboard(MainActivity.this);
-                loadingdialog.startloading_user_admin();
-                if (!(username_user.isEmpty())) {
-                    username_val.setError(null);
-                    //email_val.setErrorEnabled(false);
-                    if (!(password_user.isEmpty())) {
-                        password_val.setError(null);
+            login = findViewById(R.id.btn_login_admin);
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    email_val = findViewById(R.id.et_email_user_input);
+                    password_val = findViewById(R.id.et_password_user_input);
+                    String email_user = email_val.getText().toString().toLowerCase();
+                    String password_user = password_val.getText().toString();
+                    hideSoftKeyboard(MainActivity.this);
+                    loadingdialog.startloading_user_admin();
+                    if (!(email_user.isEmpty())) {
+                        email_val.setError(null);
                         //password_val.setErrorEnabled(false);
+                        if ((email_user.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"))) {
+                            email_val.setError(null);
+                            if (!(password_user.isEmpty())) {
+                                password_val.setError(null);
+                                //repassword_val.setErrorEnabled(false);
 
-                        final String username_data = username_val.getText().toString();
-                        final String password_data = password_val.getText().toString();
+                                final String email_data = email_val.getText().toString();
+                                final String password_data = password_val.getText().toString();
 
-                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReference = firebaseDatabase.getReference("datauser");
+                                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                                DatabaseReference databaseReference = firebaseDatabase.getReference("datauser");
 
-                        Query check_email = databaseReference.orderByChild("username").equalTo(username_data);
-                        check_email.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if (snapshot.exists()) {
-                                    username_val.setError(null);
-                                    //email_val.setErrorEnabled(false);
-                                    String password_check = snapshot.child(username_data).child("password").getValue(String.class);
-                                    if (password_check.equals(password_data)) {
-                                        password_val.setError(null);
-                                        //password_val.setErrorEnabled(false);
+                                Query check_email = databaseReference.orderByChild("username").equalTo(email_data);
+                                check_email.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if (snapshot.exists()) {
+                                            email_val.setError(null);
+                                            //password_val.setErrorEnabled(false);
+                                            String password_check = snapshot.child(email_data).child("repassword").getValue(String.class);
+                                            if (password_check.equals(password_data)) {
+                                                password_val.setError(null);
+                                                //repassword_val.setErrorEnabled(false);
 
 
                                                 Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
@@ -120,42 +142,47 @@ public class MainActivity extends AppCompatActivity {
                                                 startActivity(intent);
                                                 finishAffinity();
 
-                                    } else {
-                                        loadingdialog.dismissDialog();
-                                        password_val.setError("Incorrect password");
-                                        password_val.requestFocus();
+                                            } else {
+                                                loadingdialog.dismissDialog();
+                                                password_val.setError("Incorrect repassword");
+                                                password_val.requestFocus();
+                                            }
+                                        } else {
+                                            loadingdialog.dismissDialog();
+                                            email_val.setError("Email doesn't exist, please register first!");
+                                            email_val.requestFocus();
+                                        }
                                     }
-                                } else {
-                                    loadingdialog.dismissDialog();
-                                    username_val.setError("Username doesn't exist, please register first!");
-                                    username_val.requestFocus();
-                                }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                                Query check_password = databaseReference.orderByChild("repassword").equalTo(password_data);
+
+                            } else {
+                                loadingdialog.dismissDialog();
+                                password_val.setError("Password not Entered!");
+                                password_val.requestFocus();
                             }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
-
-                        Query check_password = databaseReference.orderByChild("password").equalTo(password_data);
+                        } else {
+                            loadingdialog.dismissDialog();
+                            password_val.setError("Please enter a valid email address!");
+                            password_val.requestFocus();
+                        }
 
                     } else {
                         loadingdialog.dismissDialog();
-                        password_val.setError("Password not Entered!");
-                        password_val.requestFocus();
+                        email_val.setError("Email not Entered!");
+                        email_val.requestFocus();
                     }
 
-                } else {
-                    loadingdialog.dismissDialog();
-                    username_val.setError("Username not Entered!");
-                    username_val.requestFocus();
                 }
 
-            }
+            });
 
-        });
-
+        }
     }
 
     private boolean isConnected() {
@@ -167,11 +194,16 @@ public class MainActivity extends AppCompatActivity {
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(
                         Activity.INPUT_METHOD_SERVICE);
-        if(inputMethodManager.isAcceptingText()){
+        if (inputMethodManager.isAcceptingText()) {
             inputMethodManager.hideSoftInputFromWindow(
                     activity.getCurrentFocus().getWindowToken(),
                     0
             );
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 }

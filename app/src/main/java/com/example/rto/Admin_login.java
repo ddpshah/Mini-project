@@ -85,7 +85,7 @@ public class Admin_login extends AppCompatActivity {
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if (snapshot.exists()) {
                                         username_val.setError(null);
-                                        String password_check = snapshot.child(username_data).child("password").getValue(String.class);
+                                        String password_check = snapshot.child(username_data).child("repassword").getValue(String.class);
                                         if (password_check.equals(password_data)) {
                                             if (security_data.equals(code)) {
                                                 password_val.setError(null);
@@ -102,7 +102,7 @@ public class Admin_login extends AppCompatActivity {
                                             }
                                         } else {
                                             loadingdialog.dismissDialog();
-                                            password_val.setError("Incorrect password");
+                                            password_val.setError("Incorrect repassword");
                                             password_val.requestFocus();
                                         }
                                     } else {
@@ -118,7 +118,7 @@ public class Admin_login extends AppCompatActivity {
                                 }
 
                             });
-                            Query check_password = databaseReference.orderByChild("password").equalTo(password_data);
+                            Query check_password = databaseReference.orderByChild("repassword").equalTo(password_data);
                         } else {
                             loadingdialog.dismissDialog();
                             code_val.setError("Security code not Entered!");
