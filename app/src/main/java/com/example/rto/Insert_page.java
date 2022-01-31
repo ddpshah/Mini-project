@@ -37,7 +37,7 @@ public class Insert_page extends AppCompatActivity {
         et.setText(s);
 
         number_plate_val=findViewById(R.id.et_number_plate_input);
-        registration_date_val=findViewById(R.id.et_registrationinput);
+        registration_date_val=findViewById(R.id.et_numberplate_original_user);
         engine_no_val=findViewById(R.id.et_engine_no);
         owner_name_val=findViewById(R.id.et_ownername_insert_input);
         vehicle_class_val=findViewById(R.id.vehicleclass_insert_input);

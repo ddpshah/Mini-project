@@ -8,277 +8,331 @@
     android:layout_width="match_parent">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".Search"
-    android:background="@drawable/background1"
-    android:padding="20dp">
-
-
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="Car Details"
-        android:textColor="@color/white"
-        android:textSize="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/background1"
+        android:padding="20dp"
+        tools:context=".Search">
 
-    <TextView
-        android:id="@+id/tv_numberplateview"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/input_field"
-        android:fontFamily="@font/questrial"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <TextView
-        android:id="@+id/tv_registration_number"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/input_field"
-        android:fontFamily="@font/questrial"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="Car Details"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/tv_engine_no"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
-        android:background="@drawable/input_field"
-        android:fontFamily="@font/questrial"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        <TextView
+            android:id="@+id/tv_numberplateview"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_field"
+            android:fontFamily="@font/questrial"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
-    <TextView
-        android:id="@+id/tv_owner_name"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/input_field"
-        android:fontFamily="@font/questrial"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        <TextView
+            android:id="@+id/tv_registration_number"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_field"
+            android:fontFamily="@font/questrial"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
-    <TextView
-        android:id="@+id/tv_vehicle_class"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
-        android:background="@drawable/input_field"
-        android:fontFamily="@font/questrial"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+        <TextView
+            android:id="@+id/tv_engine_no"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_field"
+            android:fontFamily="@font/questrial"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
-    <TextView
-        android:id="@+id/tv_fuel_type"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
-        android:background="@drawable/input_field"
-        android:fontFamily="@font/questrial"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        <TextView
+            android:id="@+id/tv_owner_name"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_field"
+            android:fontFamily="@font/questrial"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-    <TextView
-        android:id="@+id/tv_model"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
-        android:background="@drawable/input_field"
-        android:fontFamily="@font/questrial"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        <TextView
+            android:id="@+id/tv_vehicle_class"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_field"
+            android:fontFamily="@font/questrial"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
-    <TextView
-        android:id="@+id/tv_rc_status"
-        android:layout_width="353dp"
-        android:layout_height="47dp"
-        android:background="@drawable/input_field"
-        android:fontFamily="@font/questrial"
-        android:paddingTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+        <TextView
+            android:id="@+id/tv_fuel_type"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_field"
+            android:fontFamily="@font/questrial"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="28dp"
-        android:layout_height="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_numberplateview"
-        app:layout_constraintEnd_toStartOf="@+id/textView23"
-        app:layout_constraintHorizontal_bias="0.018"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037"
-        app:srcCompat="@drawable/arrow_back" />
+        <TextView
+            android:id="@+id/tv_model"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_field"
+            android:fontFamily="@font/questrial"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="Number Plate"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/default_car" />
+        <TextView
+            android:id="@+id/tv_rc_status"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/input_field"
+            android:fontFamily="@font/questrial"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/questrial"
-        android:text="Registration Date"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_numberplateview" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="28dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toTopOf="@+id/guideline23"
+            app:srcCompat="@drawable/arrow_back" />
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="Engine No."
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_registration_number" />
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="Number Plate"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/default_car" />
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:fontFamily="@font/questrial"
-        android:text="Owner name"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_engine_no" />
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="Registration Date"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/tv_numberplateview" />
 
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="Vehicle Class"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_owner_name" />
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="Engine No."
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/tv_registration_number" />
 
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="Fuel Type"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_vehicle_class" />
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="Owner name"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/tv_engine_no" />
 
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="Maker/Model"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_fuel_type" />
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="Vehicle Class"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/tv_owner_name" />
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/questrial"
-        android:text="RC Status"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_model" />
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="Fuel Type"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/tv_vehicle_class" />
 
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/questrial"
-        android:text="@string/powered_by_grp_2_batch_c"
-        android:textColor="@color/slight_grey"
-        android:textSize="10sp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="Maker/Model"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fuel_type" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_rc_status"
-        app:srcCompat="@drawable/icon_8" />
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="RC Status"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/tv_model" />
 
-    <ImageView
-        android:id="@+id/default_car"
-        android:layout_width="283dp"
-        android:layout_height="249dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
-        app:srcCompat="@drawable/myimage" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rc_status"
+            app:srcCompat="@drawable/icon_8" />
+
+        <TextView
+            android:id="@+id/bottomline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/questrial"
+            android:text="@string/powered_by_ddpshah"
+            android:textColor="@color/slight_grey"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline24"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4"
+            tools:ignore="SmallSp" />
+
+        <ImageView
+            android:id="@+id/default_car"
+            android:layout_width="283dp"
+            android:layout_height="249dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toBottomOf="@+id/textView23"
+            app:srcCompat="@drawable/myimage" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="5dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="5dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="5dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="5dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

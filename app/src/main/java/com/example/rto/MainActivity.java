@@ -1,35 +1,36 @@
 package com.example.rto;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "";
     TextView register;
-    TextView admin_login;
+    TextView admin_login, forget_password_user;
     Button login;
     TextInputEditText email_val, password_val;
     FirebaseAuth mAuth;
@@ -77,6 +78,25 @@ public class MainActivity extends AppCompatActivity {
         } else {
             setContentView(R.layout.activity_main);
 
+            forget_password_user = findViewById(R.id.forgot_password_user);
+            forget_password_user.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(MainActivity.this,forget_password.class);
+                    startActivity(intent);
+                    /*AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.AlertDialogTheme);
+                    View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.email_sent_forgot_password, (ConstraintLayout) findViewById(R.id.layoutDialogContainer_success));
+                    builder.setView(view);
+                    AlertDialog alertDialog1 = builder.create();
+                    view.findViewById(R.id.button_proceed).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            alertDialog1.dismiss();
+                        }
+                    });*/
+                }
+            });
+
 
             register = findViewById(R.id.Register);
             register.setOnClickListener(new View.OnClickListener() {
@@ -116,51 +136,24 @@ public class MainActivity extends AppCompatActivity {
                             email_val.setError(null);
                             if (!(password_user.isEmpty())) {
                                 password_val.setError(null);
-                                //repassword_val.setErrorEnabled(false);
-
-                                final String email_data = email_val.getText().toString();
+                                final String email_data = email_val.getText().toString().toLowerCase();
                                 final String password_data = password_val.getText().toString();
 
-                                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                                DatabaseReference databaseReference = firebaseDatabase.getReference("datauser");
-
-                                Query check_email = databaseReference.orderByChild("username").equalTo(email_data);
-                                check_email.addListenerForSingleValueEvent(new ValueEventListener() {
+                                mAuth.signInWithEmailAndPassword(email_data, password_data).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        if (snapshot.exists()) {
-                                            email_val.setError(null);
-                                            //password_val.setErrorEnabled(false);
-                                            String password_check = snapshot.child(email_data).child("repassword").getValue(String.class);
-                                            if (password_check.equals(password_data)) {
-                                                password_val.setError(null);
-                                                //repassword_val.setErrorEnabled(false);
-
-
-                                                Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
-                                                loadingdialog.dismissDialog();
-                                                startActivity(intent);
-                                                finishAffinity();
-
-                                            } else {
-                                                loadingdialog.dismissDialog();
-                                                password_val.setError("Incorrect repassword");
-                                                password_val.requestFocus();
-                                            }
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+                                            loadingdialog.dismissDialog();
+                                            Toast.makeText(getApplicationContext(), "Login Successful!", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
+                                            startActivity(intent);
+                                            finish();
                                         } else {
                                             loadingdialog.dismissDialog();
-                                            email_val.setError("Email doesn't exist, please register first!");
-                                            email_val.requestFocus();
+                                            Toast.makeText(getApplicationContext(), "User doesn't exist!", Toast.LENGTH_SHORT).show();
                                         }
                                     }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                    }
                                 });
-                                Query check_password = databaseReference.orderByChild("repassword").equalTo(password_data);
-
                             } else {
                                 loadingdialog.dismissDialog();
                                 password_val.setError("Password not Entered!");
@@ -183,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
+
     }
 
     private boolean isConnected() {

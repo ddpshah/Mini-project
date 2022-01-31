@@ -141,7 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/questrial"
-        android:text="@string/powered_by_grp_2_batch_c"
+        android:text="@string/powered_by_ddpshah"
         android:textColor="@color/slight_grey"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"

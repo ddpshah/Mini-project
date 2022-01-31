@@ -7,12 +7,12 @@
     android:layout_height="wrap_content"
     android:background="@drawable/bg_shape">
 
-    <ImageView
-        android:layout_width="160dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/dinosaur" />
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/internet"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:layout_width="match_parent"

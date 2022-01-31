@@ -18,9 +18,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.auth.User;
 
 public class Register_activity extends AppCompatActivity {
     ImageView backbutton;
@@ -87,7 +84,6 @@ public class Register_activity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                                 if (task.isSuccessful()) {
-                                                    mAuth.getCurrentUser().getUid();
                                                     loadingdialog.dismissDialog();
                                                     Toast.makeText(getApplicationContext(), "Registration Successful", Toast.LENGTH_SHORT).show();
                                                     Intent intent = new Intent(getApplicationContext(), User_dashboard.class);
@@ -95,7 +91,7 @@ public class Register_activity extends AppCompatActivity {
                                                     finish();
                                                 } else {
                                                     loadingdialog.dismissDialog();
-                                                    Toast.makeText(getApplicationContext(), "" + task.getException(), Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getApplicationContext(), "User already exists!", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });

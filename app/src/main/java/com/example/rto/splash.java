@@ -27,25 +27,25 @@ public class splash extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
 
-            setContentView(R.layout.activity_splash);
-            logo = findViewById(R.id.logo);
-            appName = findViewById(R.id.app_name);
-            splashImg = findViewById(R.id.bg);
-            lottieAnimationView = findViewById(R.id.lottie);
+        setContentView(R.layout.activity_splash);
+        logo = findViewById(R.id.logo);
+        appName = findViewById(R.id.app_name);
+        splashImg = findViewById(R.id.bg);
+        lottieAnimationView = findViewById(R.id.lottie);
 
-            splashImg.animate().translationY(-1600).setDuration(4000).setStartDelay(5000);
-            logo.animate().translationY(1400).setDuration(4000).setStartDelay(5000);
-            appName.animate().translationY(1400).setDuration(4000).setStartDelay(5000);
-            lottieAnimationView.animate().translationX(1600).setDuration(5000).setStartDelay(8000);
+        splashImg.animate().translationY(-1600).setDuration(4000).setStartDelay(5000);
+        logo.animate().translationY(1400).setDuration(4000).setStartDelay(5000);
+        appName.animate().translationY(1400).setDuration(4000).setStartDelay(5000);
+        lottieAnimationView.animate().translationX(1600).setDuration(5000).setStartDelay(8000);
 
-            timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                }
-            }, 6000);
-        }
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        }, 6000);
+    }
 
 }

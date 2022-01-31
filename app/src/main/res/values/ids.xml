@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="et_registrationinput" type="id" />
+    <item name="et_numberplate_original_user" type="id" />
 </resources>

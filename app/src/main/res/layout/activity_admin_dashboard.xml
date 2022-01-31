@@ -1,214 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Admin_dashboard">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_Add"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/red"
+        android:fontFamily="@font/questrial"
+        android:text="Add"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toEndOf="@+id/btn_search"
+        app:layout_constraintTop_toBottomOf="@+id/et_registration" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_search"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/red"
+        android:fontFamily="@font/questrial"
+        android:text="Search"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Add"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/et_registration" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_edit"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/red"
+        android:fontFamily="@font/questrial"
+        android:text="Update"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Add"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_Add"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Add" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_delete"
+        android:layout_width="0dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/questrial"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_search"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_search"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search" />
+
+    <TextView
+        android:id="@+id/bottomline"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/background1"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/questrial"
+        android:text="@string/powered_by_ddpshah"
+        android:textColor="@color/slight_grey"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/btn_log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/questrial"
+
+        android:text="Log Out"
+        android:textAllCaps="false"
+        android:textColor="@color/red"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomline"
+        app:layout_constraintEnd_toEndOf="@+id/bottomline"
+        app:layout_constraintStart_toStartOf="@+id/bottomline" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_log_out"
+        app:layout_constraintEnd_toEndOf="@+id/btn_log_out"
+        app:layout_constraintStart_toStartOf="@+id/btn_log_out"
+        app:srcCompat="@drawable/icon_8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
-        tools:context=".Admin_dashboard">
+        app:layout_constraintGuide_begin="20dp" />
 
-        <EditText
-            android:id="@+id/et_four_digit_no"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="112dp"
-            android:background="@drawable/input_field_admin"
-            android:ems="10"
-            android:fontFamily="@font/questrial"
-            android:hint="1234"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.32"
-            app:layout_constraintStart_toEndOf="@+id/et_aftercitycode"
-            app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
 
-        <EditText
-            android:id="@+id/et_citycode"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="112dp"
-            android:background="@drawable/input_field_admin"
-            android:ems="10"
-            android:fontFamily="@font/questrial"
-            android:gravity="center"
-            android:hint="01"
-            android:inputType="number"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey"
-            android:textSize="25dp"
-            app:layout_constraintStart_toEndOf="@+id/et_statecode"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_registration"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="MH 23 AE 7872"
+        android:textColorHint="@color/slight_grey"
 
-        <EditText
-            android:id="@+id/et_aftercitycode"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="112dp"
-            android:background="@drawable/input_field_admin"
-            android:ems="10"
-            android:fontFamily="@font/questrial"
-            android:hint="CD"
-            android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey"
-            android:textSize="25dp"
-            app:layout_constraintStart_toEndOf="@+id/et_citycode"
-            app:layout_constraintTop_toTopOf="parent" />
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/red"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-        <EditText
-            android:id="@+id/et_statecode"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="112dp"
-            android:background="@drawable/input_field_admin"
-            android:ems="10"
-            android:fontFamily="@font/questrial"
-            android:hint="AB"
-            android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey"
-            android:textSize="25dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_Add"
-            android:layout_width="130dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="56dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/red"
-            android:fontFamily="@font/questrial"
-            android:text="Add"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_four_digit_no" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_search"
-            android:layout_width="130dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/red"
-
-            android:fontFamily="@font/questrial"
-            android:text="Search"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toStartOf="@+id/btn_Add"
-            app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_statecode" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_edit"
-            android:layout_width="130dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="56dp"
-            android:background="@drawable/button"
-            android:backgroundTint="@color/red"
-            android:fontFamily="@font/questrial"
-            android:text="Update"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Add" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_delete"
-            android:layout_width="130dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/button"
-            android:fontFamily="@font/questrial"
-            android:text="Delete"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
-            app:layout_constraintEnd_toStartOf="@+id/btn_edit"
-            app:layout_constraintHorizontal_bias="0.454"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_search"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/bottomline"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@id/et_numberplate_original_user"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/questrial"
-            android:text="@string/powered_by_grp_2_batch_c"
-            android:textColor="@color/slight_grey"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_log_out"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="SmallSp" />
+            android:inputType="text"
+            android:textColor="?android:textColorPrimary" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/btn_log_out"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/questrial"
-            android:text="Log Out"
-            android:textAllCaps="false"
-            android:textColor="@color/red"
-            android:textSize="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/questrial"
+        android:text="Enter the vehicle number"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="316dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_edit"
-            app:srcCompat="@drawable/icon_8" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
